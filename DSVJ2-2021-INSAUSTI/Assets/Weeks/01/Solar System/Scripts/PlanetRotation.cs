@@ -6,10 +6,10 @@ public class PlanetRotation : MonoBehaviour
     public Transform parent;
     public float orbitTime;
 
-    const float speedMod = 1;
-    public float anglePerSecond;
-    public float radius;
-    public float angle;
+    float speedMod = 10;
+    float anglePerSecond;
+    float radius;
+    float angle;
 
     private void Start()
     {
@@ -20,16 +20,16 @@ public class PlanetRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        angle += anglePerSecond * Time.deltaTime;
+        angle += anglePerSecond * speedMod * Time.deltaTime;
         this.transform.localPosition = new Vector3(GetX(), 0, GetZ());
     }
 
     float GetX()
     {
-        return radius * Mathf.Cos(angle);
+        return radius * Mathf.Cos(angle * Mathf.Deg2Rad);
     }
     float GetZ()
     {
-        return radius * Mathf.Sin(angle);
+        return radius * Mathf.Sin(angle * Mathf.Deg2Rad);
     }
 }
