@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 8b007b799506e65419ebafd8ad5b958f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - astralParent: {instanceID: 0}
+  - prefab: {fileID: 5155399978093420660, guid: 70060a1b074c96344986d615d7865a27,
+      type: 3}
+  - prefabMoon: {instanceID: 0}
+  - prefabRing: {fileID: 1225930323331583231, guid: 72d90bc3ee5b78543a42dc764ed14ace,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
