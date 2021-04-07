@@ -528,9 +528,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 406008174}
-  planet: {fileID: 5155399978093420660, guid: 70060a1b074c96344986d615d7865a27, type: 3}
-  ring: {fileID: 1225930323331583231, guid: 72d90bc3ee5b78543a42dc764ed14ace, type: 3}
+  planetPrefab: {fileID: 5155399978093420660, guid: 70060a1b074c96344986d615d7865a27,
+    type: 3}
+  ringPregab: {fileID: 1225930323331583231, guid: 72d90bc3ee5b78543a42dc764ed14ace,
+    type: 3}
+  planetsMaterials:
+  - {fileID: 2100000, guid: 07eb2782443a08d4987cf62bdcd699fb, type: 2}
+  - {fileID: 2100000, guid: 1a40ffc6729c9b346a40b472e2e49f88, type: 2}
+  - {fileID: 2100000, guid: 0276acd7af5597a47b54a15f63df1093, type: 2}
+  - {fileID: 2100000, guid: 608c7d5efa4b039429ad6d966958840d, type: 2}
+  - {fileID: 2100000, guid: 4a3eb472ca01b3b4eb6cf117c6f29c63, type: 2}
+  - {fileID: 2100000, guid: ba1555fb76ece524ba83cbd75c6e5f8c, type: 2}
+  - {fileID: 2100000, guid: 38cb9f76b962ffa4aaf823d8bec52a25, type: 2}
+  - {fileID: 2100000, guid: 76a7cfab22f39ef409b041fcde1a2ac4, type: 2}
   scaleMultiplier: 0.3
+  planetQuantity: 0
 --- !u!4 &1373027303
 Transform:
   m_ObjectHideFlags: 0
@@ -779,6 +791,7 @@ GameObject:
   - component: {fileID: 2119709556}
   - component: {fileID: 2119709555}
   - component: {fileID: 2119709554}
+  - component: {fileID: 2119709558}
   m_Layer: 0
   m_Name: Mercury
   m_TagString: Untagged
@@ -874,3 +887,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119709552}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2119709558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119709552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b007b799506e65419ebafd8ad5b958f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  parent: {fileID: 0}
+  orbitTime: 0
+  rotationTime: 0

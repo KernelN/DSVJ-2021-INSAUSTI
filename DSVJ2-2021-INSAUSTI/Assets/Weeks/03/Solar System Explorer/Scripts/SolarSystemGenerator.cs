@@ -2,16 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolarSystemGenerator : MonoBehaviour
+namespace LivingStarmap
 {
-    public Transform sun;
-    public GameObject planet;
-    public GameObject ring;
-
-    public float scaleMultiplier;
-
-    void Start()
+    public class SolarSystemGenerator : MonoBehaviour
     {
-        sun.localScale *= scaleMultiplier;
+        //inspector variables
+        [SerializeField] Transform sun;
+        [SerializeField] GameObject planetPrefab;
+        [SerializeField] GameObject ringPregab;
+        [SerializeField] Material[] planetsMaterials;
+        [SerializeField] float scaleMultiplier;
+        [SerializeField] short planetQuantity;
+
+        //fully private variables
+        const short minPlanetDistance = 28;
+        const float maxPlanetDistance = minPlanetDistance * 77.78f;
+
+        #region Event Methods
+        void Start()
+        {
+            sun.localScale *= scaleMultiplier;
+        }
+        #endregion
+
+        #region Internal Methods
+        #endregion
     }
 }
