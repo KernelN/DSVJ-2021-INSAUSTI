@@ -29,8 +29,8 @@ namespace LivingStarmap
         {
             if (isMoon)
             {
-                transform.localScale *= Random.Range(0.2f, 0.3f);
-                transform.localPosition = new Vector3(transform.localScale.x * 3.6f, 0, 0);
+                transform.localScale = new Vector3(1,1,1) * Random.Range(0.2f, 0.3f);
+                transform.localPosition = new Vector3(transform.localScale.x + astralParent.localScale.x / 2, 0, 0);
                 this.name = astralParent.name + " - Moon" + astralParent.childCount;
             }
             else
@@ -41,13 +41,13 @@ namespace LivingStarmap
         }
         internal void GenerateOrbit()
         {
-            orbit.radius = Vector3.Magnitude(transform.localPosition - astralParent.localPosition);
-            orbitTime = (transform.localScale.x * orbit.radius) * 10;
+            orbit.radius = transform.localPosition.x;
+            orbitTime = (transform.localScale.x * orbit.radius) * 200 / astralParent.localScale.x;
             orbit.SetAnglePerSecond(360 / orbitTime);
         }
         internal void GenerateRotation()
         {
-            rotationTime = Random.Range(0.40f, 60);
+            rotationTime = Random.Range(-60f, 60f);
         }
         #endregion
 
@@ -55,7 +55,7 @@ namespace LivingStarmap
         internal void UpdateOrbit()
         {
             orbit.UpdateAngle(orbitSpeedMod * Time.deltaTime);
-            transform.localPosition = new Vector3(orbit.GetX(), 0, orbit.GetY()); //parametric circle is in 2d, so the Y coordinate becomes the Z coordinate
+            transform.position = astralParent.localPosition + new Vector3(orbit.GetX(), 0, orbit.GetY()); //parametric circle is in 2d, so the Y coordinate becomes the Z coordinate
         }
         internal void UpdateRotation()
         {

@@ -4,12 +4,9 @@ namespace LivingStarmap
 {
     class Planet : Planetoid
     {
-        enum PlanetType { LONER, MOON, RING };
-        [SerializeField] PlanetType type;
-        [SerializeField] GameObject prefab;
-        //[SerializeField] GameObject prefabMoon;
-        [SerializeField] GameObject prefabRing;
-
+        public static Material moonMaterial;
+        public static GameObject prefabMoon;
+        public static GameObject prefabRing;
 
         #region Constructors
         public void SetPlanet(Transform parent)
@@ -20,19 +17,24 @@ namespace LivingStarmap
             GenerateOrbit();
             GenerateRotation();
         }
-        void GenerateMoon()
-        {
-            //GameObject moon;
-            //size * 3.6
-            //size range between 0.2 & 0.3
-        }
         void SelectRandomType()
         {
             int rand = Random.Range(1, 10);
 
-            if (rand <= 5) { type = PlanetType.LONER; }
-            else if (rand <= 7) { type = PlanetType.MOON;  }
-            else if (rand <= 9) { type = PlanetType.RING; }
+            if (rand > 5) 
+            {
+                for (int i = 0; i < Random.Range(1, 3); i++)
+                {
+                    GameObject moon = Instantiate(prefabMoon);
+                    moon.GetComponent<MeshRenderer>().material = moonMaterial;
+                    moon.AddComponent<Planetoid>().astralParent = transform; //set moon as child of this planet
+                }
+            }
+
+            if (rand > 7) 
+            { 
+                Instantiate(prefabRing).transform.SetParent(this.transform);
+            }
         }
         #endregion
 
